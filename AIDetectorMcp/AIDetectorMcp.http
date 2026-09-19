@@ -1,0 +1,33 @@
+# MCP protocol smoke test. The server must be running first.
+@HostAddress = http://localhost:6104
+
+POST {{HostAddress}}/
+Accept: application/json, text/event-stream
+Content-Type: application/json
+MCP-Protocol-Version: 2025-11-25
+
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tools/list"
+}
+
+### Detect one passage
+
+POST {{HostAddress}}/
+Accept: application/json, text/event-stream
+Content-Type: application/json
+MCP-Protocol-Version: 2025-11-25
+
+{
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/call",
+    "params": {
+        "name": "pangram_detect_text",
+        "arguments": {
+            "text": "Paste a passage here to inspect its AI detection signal.",
+            "include_excerpts": true
+        }
+    }
+}

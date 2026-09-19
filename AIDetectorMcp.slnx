@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AIDetectorMcp/AIDetectorMcp.csproj" />
+  <Project Path="tests/AIDetectorMcp.Tests/AIDetectorMcp.Tests.csproj" />
+</Solution>
