@@ -27,7 +27,7 @@ public sealed class PangramMcpTools(
     {
         PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
         DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseLower,
-        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+        DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.Never,
         TypeInfoResolver = new DefaultJsonTypeInfoResolver(),
     };
 
@@ -37,7 +37,8 @@ public sealed class PangramMcpTools(
         ReadOnly = true,
         Idempotent = true,
         Destructive = false,
-        OpenWorld = true
+        OpenWorld = true,
+        UseStructuredContent = true
         )]
     [Description(
         "List the Pangram AI-detection model selectors available to this account, in server order. " +
@@ -56,7 +57,8 @@ public sealed class PangramMcpTools(
         ReadOnly = false,
         Idempotent = false,
         Destructive = false,
-        OpenWorld = true
+        OpenWorld = true,
+        UseStructuredContent = true
         )]
     [Description(
         """
@@ -121,7 +123,8 @@ public sealed class PangramMcpTools(
         ReadOnly = true,
         Idempotent = true,
         Destructive = false,
-        OpenWorld = true
+        OpenWorld = true,
+        UseStructuredContent = true
         )]
     [Description(
         "Fetch the current status or compact result of a Pangram detection task started by pangram_detect_text. Free and non-blocking. Use when a previous call returned pending.")]
@@ -149,7 +152,8 @@ public sealed class PangramMcpTools(
         ReadOnly = false,
         Idempotent = false,
         Destructive = false,
-        OpenWorld = true
+        OpenWorld = true,
+        UseStructuredContent = true
         )]
     [Description(
         """
@@ -235,7 +239,8 @@ public sealed class PangramMcpTools(
         ReadOnly = true,
         Idempotent = true,
         Destructive = false,
-        OpenWorld = true
+        OpenWorld = true,
+        UseStructuredContent = true
         )]
     [Description(
         "Check progress for a Pangram bulk job. Free and non-blocking. " +
@@ -281,7 +286,8 @@ public sealed class PangramMcpTools(
         ReadOnly = true,
         Idempotent = true,
         Destructive = false,
-        OpenWorld = true
+        OpenWorld = true,
+        UseStructuredContent = true
         )]
     [Description(
         "Page through compact results for a Pangram bulk job. Free. " +
@@ -443,7 +449,8 @@ public sealed class PangramFileMcpTools(
         ReadOnly = false,
         Idempotent = false,
         Destructive = false,
-        OpenWorld = true
+        OpenWorld = true,
+        UseStructuredContent = true
         )]
     [Description(
         "Upload local document files to Pangram for AI detection. Consumes credits and sends file contents " +

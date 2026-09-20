@@ -23,7 +23,7 @@ builder.Services
         // See https://csharp.sdk.modelcontextprotocol.io/concepts/transports/transports.html for details.
         options.Stateless = true;
     })
-    .WithTools<PangramMcpTools>();
+    .WithTools<PangramMcpTools>(PangramMcpTools.SerializerOptions);
 builder.Services.AddApplicationInsightsTelemetry(new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions
 {
     ConnectionString = builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]

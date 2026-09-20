@@ -29,4 +29,16 @@ public sealed class McpToolRegistrationTests
             },
             names);
     }
+
+    [Fact]
+    public void ToolsWithOutputSchemasEnableStructuredContent()
+    {
+        var tools = new[] { typeof(PangramMcpTools), typeof(PangramFileMcpTools) }
+            .SelectMany(type => type.GetMethods(BindingFlags.Public | BindingFlags.Instance))
+            .Select(method => method.GetCustomAttributes<McpServerToolAttribute>().SingleOrDefault())
+            .Where(attribute => attribute is not null)
+            .ToArray();
+
+        Assert.All(tools, tool => Assert.True(tool!.UseStructuredContent));
+    }
 }
