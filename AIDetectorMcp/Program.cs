@@ -1,4 +1,5 @@
 using AIDetectorMcp.Pangram;
+using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,10 @@ builder.Services
         options.Stateless = true;
     })
     .WithTools<PangramMcpTools>();
+builder.Services.AddApplicationInsightsTelemetry(new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions
+{
+    ConnectionString = builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]
+});
 
 //// Do not advertise a path-reading tool unless the host has explicitly supplied
 //// an allowlisted directory for it.

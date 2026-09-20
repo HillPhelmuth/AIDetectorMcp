@@ -14,9 +14,12 @@
 
     <!-- Set up the MCP server to be a single file executable -->
     <PublishSingleFile>true</PublishSingleFile>
+    <ApplicationInsightsResourceId>/subscriptions/b167babc-47d2-4b9e-9fea-c9e2b399ef74/resourceGroups/ai-detector-rg/providers/microsoft.insights/components/ai-detector-mcp</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.21.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="3.1.2" />
     <PackageReference Include="ModelContextProtocol.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="10.10.0" />
   </ItemGroup>
