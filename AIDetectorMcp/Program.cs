@@ -13,7 +13,7 @@ if (string.IsNullOrWhiteSpace(builder.Configuration["Pangram:ApiKey"]) &&
 builder.Services.AddPangramDetection(builder.Configuration);
 
 // Add the MCP services: the transport to use (http) and the tools to register.
-var mcp = builder.Services
+builder.Services
     .AddMcpServer()
     .WithHttpTransport(options =>
     {
@@ -22,16 +22,16 @@ var mcp = builder.Services
         // See https://csharp.sdk.modelcontextprotocol.io/concepts/transports/transports.html for details.
         options.Stateless = true;
     })
-    .WithTools<PangramMcpTools>(PangramMcpTools.SerializerOptions);
+    .WithTools<PangramMcpTools>();
 
-// Do not advertise a path-reading tool unless the host has explicitly supplied
-// an allowlisted directory for it.
-if (!string.IsNullOrWhiteSpace(builder.Configuration["Pangram:UploadRoot"]))
-{
-    mcp.WithTools<PangramFileMcpTools>(PangramMcpTools.SerializerOptions);
-}
+//// Do not advertise a path-reading tool unless the host has explicitly supplied
+//// an allowlisted directory for it.
+//if (!string.IsNullOrWhiteSpace(builder.Configuration["Pangram:UploadRoot"]))
+//{
+//    mcp.WithTools<PangramFileMcpTools>(PangramMcpTools.SerializerOptions);
+//}
 
 var app = builder.Build();
-app.MapMcp();
-
+app.MapMcp("/mcp");
+//app.UseHttpsRedirection();
 app.Run();
