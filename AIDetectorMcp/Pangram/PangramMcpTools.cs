@@ -37,8 +37,8 @@ public sealed class PangramMcpTools(
         ReadOnly = true,
         Idempotent = true,
         Destructive = false,
-        OpenWorld = true,
-        UseStructuredContent = true)]
+        OpenWorld = true
+        )]
     [Description(
         "List the Pangram AI-detection model selectors available to this account, in server order. " +
         "Free and non-blocking. Use this before passing an explicit model to another Pangram tool.")]
@@ -56,8 +56,8 @@ public sealed class PangramMcpTools(
         ReadOnly = false,
         Idempotent = false,
         Destructive = false,
-        OpenWorld = true,
-        UseStructuredContent = true)]
+        OpenWorld = true
+        )]
     [Description(
         """
         Analyze one passage for AI-generated or AI-assisted writing using Pangram. Consumes credits and blocks while Pangram processes the task, up to the configured timeout. If status is pending, call pangram_get_detection with the returned task_id. Returns AI, AI-assisted, and human fractions, segment counts, labels, confidence, and offsets. Pangram detection is a probabilistic signal, not proof.
@@ -121,8 +121,8 @@ public sealed class PangramMcpTools(
         ReadOnly = true,
         Idempotent = true,
         Destructive = false,
-        OpenWorld = true,
-        UseStructuredContent = true)]
+        OpenWorld = true
+        )]
     [Description(
         "Fetch the current status or compact result of a Pangram detection task started by pangram_detect_text. Free and non-blocking. Use when a previous call returned pending.")]
     public async Task<DetectionToolResult> GetDetectionAsync(
@@ -149,8 +149,8 @@ public sealed class PangramMcpTools(
         ReadOnly = false,
         Idempotent = false,
         Destructive = false,
-        OpenWorld = true,
-        UseStructuredContent = true)]
+        OpenWorld = true
+        )]
     [Description(
         """
         Submit many passages to Pangram as one asynchronous bulk AI-detection job.
@@ -235,8 +235,8 @@ public sealed class PangramMcpTools(
         ReadOnly = true,
         Idempotent = true,
         Destructive = false,
-        OpenWorld = true,
-        UseStructuredContent = true)]
+        OpenWorld = true
+        )]
     [Description(
         "Check progress for a Pangram bulk job. Free and non-blocking. " +
         "is_terminal is true for succeeded, failed, and partial; stop polling once it is true.")]
@@ -281,8 +281,8 @@ public sealed class PangramMcpTools(
         ReadOnly = true,
         Idempotent = true,
         Destructive = false,
-        OpenWorld = true,
-        UseStructuredContent = true)]
+        OpenWorld = true
+        )]
     [Description(
         "Page through compact results for a Pangram bulk job. Free. " +
         "Use next_offset to fetch the next page; it is null on the last page. " +
@@ -443,8 +443,8 @@ public sealed class PangramFileMcpTools(
         ReadOnly = false,
         Idempotent = false,
         Destructive = false,
-        OpenWorld = true,
-        UseStructuredContent = true)]
+        OpenWorld = true
+        )]
     [Description(
         "Upload local document files to Pangram for AI detection. Consumes credits and sends file contents " +
         "to a third party. Only files beneath the host-configured UploadRoot are allowed. " +
