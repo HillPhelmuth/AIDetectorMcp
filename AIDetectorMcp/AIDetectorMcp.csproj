@@ -9,12 +9,12 @@
 
 
 		<!-- Set up the MCP server to be a self-contained application that does not rely on a shared framework -->
-		<SelfContained>true</SelfContained>
+		<!--<SelfContained>true</SelfContained>
 		<PublishSelfContained>true</PublishSelfContained>
 
-		<!-- Set up the MCP server to be a single file executable -->
+		--><!-- Set up the MCP server to be a single file executable --><!--
 		<PublishSingleFile>true</PublishSingleFile>
-		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->
 		<ApplicationInsightsResourceId>/subscriptions/b167babc-47d2-4b9e-9fea-c9e2b399ef74/resourceGroups/ai-detector-rg/providers/microsoft.insights/components/ai-detector-mcp</ApplicationInsightsResourceId>
 	</PropertyGroup>
 
